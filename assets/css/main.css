@@ -1,0 +1,111 @@
+/* Main */
+*
+{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.5s left;
+}
+:root
+{
+    --pColor1: #292929;
+    --pColor3: #595959;
+    --nismoRed: rgb(253, 49, 42);
+    --padding: 5px;
+    --background1: #ffffff;
+}
+body
+{
+    margin: 0;
+    overflow-x: hidden;
+    display: table;
+    content: "";
+    clear: both;
+    background: var(--background1);
+}
+/* Auxiliares */
+.grid-flex
+{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+}
+.padding
+{
+    padding: var(--padding);
+}
+/* Sidebar */
+#menu
+{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    line-height: 0;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 28px;
+    background: var(--nismoRed); /* Este color cambiará dependiendo la página */
+}
+    #menu a {color: var(--background1);}
+#sidebar
+{
+    width: 25vw;
+    position: fixed;
+    top: 0;
+    left: -25vw;
+}
+    #sidebar:target {left: 0;}
+    #sidebar ul
+    {
+        list-style: none;
+        padding: 0;
+    }
+    #sidebar ul li, #sidebar ul li a, #menu a
+    {
+        padding: var(--padding);
+        font-size: 22px;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        border-left: 2px solid transparent;
+    }
+    #sidebar ul li, #sidebar ul li a {color: var(--nismoRed); /* Este color cambiará dependiendo la página */}
+    #sidebar ul li *
+    {
+        padding-right: 2px; /* Para compensar los 2px del border */
+    }
+    #sidebar ul li:hover, #sidebar ul li a:hover
+    {
+        border-left: 2px solid var(--background1);
+        background: var(--nismoRed); /* Este color cambiará dependiendo la página */
+        color: var(--background1);
+    }
+/* Main */
+main 
+{
+    width: 100%;
+    margin-top: 5px;
+}
+/* Search */
+#search
+{
+    width: 100%;
+    color: var(--pColor3);
+}
+    #search input[type=text]
+    {
+        width: 100%;
+        font-size: 16px;
+        clear: both;
+        border: none;
+    }
+    #search button
+    {
+        width: 100%;
+        border: none;
+        font-size: 14px;
+    }
+    #search #result
+    {
+        margin: 10px auto;
+        padding-top: var(--padding);
+        border-top: 1px solid var(--pColor3);
+    }

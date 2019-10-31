@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Nissan Motors &copy</title>
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+<body>
+    <div id="menu"><a href="#sidebar"><i class="fa fa-bars padding"></i></a></div> <!-- Menú -->
+    <div id="sidebar"> <!-- Sidebar -->
+        <a href="index.html"><img src="assets/img/logo.png" width="100%" /></a>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Vehículos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Dónde comprar</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div><!-- !Sidebar -->
+    <main class="padding grid-flex">
+        <div style="padding-left: 62px;"> <!-- padding-left -->
+            <div id="search" ng-app="search" ng-controller="searchController">
+                <input type="text" placeholder="Buscá tu Nissan" id="query" class="padding" 
+                    ng-model="query" ng-change="searchQuery()" />
+                <button type="button" class="padding"
+                    ng-mousedown="deleteQuery();">Borrar</button>
+                <h2 ng-if="query != '' && result == ''">
+                    <i class="fas fa-circle-notch fa-spin"></i> Buscando <span style="text-transform: uppercase;">{{ query }}</span>...</h2>
+
+                <div id="result" ng-if="result != ''"> <!-- result -->
+                    <h2>¡Tenemos un resultado!</h2>
+                    <!-- Resultados de búsqueda -->
+                    <!-- {{ result }} -->
+                    {{ cars.{{ result }}.model }}
+                </div> <!-- !result -->
+            </div>
+            
+        </div> <!-- !padding-left -->
+        <div id="gallery"> <!-- gallery -->
+            <img src="assets/img/logo.png" width="100%" />
+        </div> <!-- !gallery -->
+
+    </main>
+<script src="assets/js/controller/search.js"></script>
+</body>
+</html>
